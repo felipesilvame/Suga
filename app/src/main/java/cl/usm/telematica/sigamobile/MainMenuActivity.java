@@ -15,6 +15,7 @@ import android.text.TextUtils;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.widget.ImageView;
+import android.widget.LinearLayout;
 import android.widget.TextView;
 
 import java.io.BufferedReader;
@@ -67,6 +68,11 @@ public class MainMenuActivity extends AppCompatActivity
         NavigationView navigationView = (NavigationView) findViewById(R.id.nav_view);
         navigationView.setNavigationItemSelectedListener(this);
         toolbar.setTitle("Menu Principal");
+
+        //se para como argumento el linearlayout principal
+        //LinearLayout navHeader = (LinearLayout) findViewById(R.id.linearLayoutHeader);
+        new HeaderMainMenuHandler(this).execute();
+        new PhotoMainHandler(this).execute();
 
     }
 

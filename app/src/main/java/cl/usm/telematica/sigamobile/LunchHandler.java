@@ -10,6 +10,7 @@ import android.widget.LinearLayout;
 import android.widget.TableLayout;
 import android.widget.TableRow;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import java.io.BufferedReader;
 import java.io.IOException;
@@ -108,6 +109,11 @@ public class LunchHandler extends AsyncTask<LinearLayout, Void, Boolean> {
 
     public void onPostExecute(Boolean success){
         if (success) {
+            Element error = doc.select("title").first();
+            if (error.text().equals("Error")){
+                Toast.makeText(mContainer.getContext(), "Acceso denegado. Sesión Perdida.", Toast.LENGTH_LONG).show();
+                return;
+            }
             //String respuesta = response.toString();
             //Document codigo_html = Jsoup.parse(respuesta);
             Elements letra10 = doc.select(".letra10");
