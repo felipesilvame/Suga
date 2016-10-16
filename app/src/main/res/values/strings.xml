@@ -1,0 +1,34 @@
+<resources>
+    <string name="app_name">SigaMobile</string>
+
+    <string name="dummy_button">Dummy Button</string>
+    <string name="dummy_content">DUMMY\nCONTENT</string>
+    <string name="title_activity_login">Entrar</string>
+
+    <!-- Strings related to login -->
+    <string name="prompt_email">Usuario</string>
+    <string name="prompt_password">Contraseña</string>
+    <string name="action_sign_in">Entrar</string>
+    <string name="action_sign_in_short">Entrar</string>
+    <string name="error_incorrect_password">Contraseña incorrecta</string>
+    <string name="error_field_required">Este campo es requerido</string>
+    <string name="use_credentials">Usar credenciales guardadas</string>
+    <string name="usuarios_guardados">Usuarios guardados</string>
+    <string name="recordar">Recordarme</string>
+    <string name="action_settings">Opciones</string>
+    <string name="informaciones">Información SIGA</string>
+    <string name="title_activity_main_menu">Menu Principal</string>
+
+    <string name="navigation_drawer_open">Open navigation drawer</string>
+    <string name="navigation_drawer_close">Close navigation drawer</string>
+    <string-array name="servidor">
+        <item>\@alumnos.usm.cl</item>
+        <item>\@sansano.usm.cl</item>
+        <item>\@titulados.usm.cl</item>
+        <item>\@postgrado.usm.cl</item>
+        <item>\@usm.cl</item>
+    </string-array>
+
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+</resources>
