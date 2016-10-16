@@ -115,6 +115,11 @@ public class MainMenuActivity extends AppCompatActivity
             setActionBarTitle("Almuerzos");
         }else if (id == R.id.nav_login){
             finish();
+        }else if (id == R.id.nav_personal){
+            PeronalFileFragment peronalFileFragment = new PeronalFileFragment();
+            FragmentManager manager = getSupportFragmentManager();
+            manager.beginTransaction().replace(R.id.main_layout, peronalFileFragment, peronalFileFragment.getTag()).commit();
+            setActionBarTitle("Ficha Personal");
         }
 
         DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
