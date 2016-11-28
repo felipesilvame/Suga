@@ -3,39 +3,37 @@
     <item android:title="Inicio">
         <menu>
             <item
-                android:id="@+id/nav_home"
-                android:icon="@drawable/home"
-                android:title="Informaciones" />
+                android:id="@+id/nav_personal"
+                android:icon="@drawable/user_shape"
+                android:title="Ficha Personal" />
             <item
-                android:id="@+id/nav_login"
-                android:icon="@drawable/sign_in"
-                android:title="Ingreso" />
+                android:id="@+id/nav_slideshow"
+                android:icon="@drawable/calendar"
+                android:title="Horario" />
+            <item
+                android:id="@+id/nav_food"
+                android:icon="@drawable/cutlery"
+                android:title="Beca de Alimentacion" />
+            <item
+                android:id="@+id/nav_resume"
+                android:icon="@drawable/file"
+                android:title="Resumen académico" />
+            <item
+                android:id="@+id/nav_adv"
+                android:icon="@drawable/graduation_cap"
+                android:title="Avance curricular" />
         </menu>
     </item>
     <group android:checkableBehavior="single">
+        <item
+            android:id="@+id/nav_home"
+            android:icon="@drawable/ic_info_outline_black_24dp"
+            android:title="Informaciones" />
+        <item
+            android:id="@+id/nav_login"
+            android:icon="@drawable/sign_in"
+            android:title="Salir" />
 
-        <item
-            android:id="@+id/nav_personal"
-            android:icon="@drawable/user_shape"
-            android:title="Ficha" />
-        <item
-            android:id="@+id/nav_slideshow"
-            android:icon="@drawable/calendar"
-            android:title="Horario" />
-        <item
-            android:id="@+id/nav_food"
-            android:icon="@drawable/cutlery"
-            android:title="Beca de Alimentacion" />
-        <item
-            android:id="@+id/nav_resume"
-            android:icon="@drawable/file"
-            android:title="Resumen académico" />
-        <item
-            android:id="@+id/nav_adv"
-            android:icon="@drawable/graduation_cap"
-            android:title="Avance curricular" />
     </group>
-
-
 
 </menu>

@@ -89,7 +89,7 @@ public class SplashScreenActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
 
         setContentView(R.layout.activity_splash_screen);
-
+        getSupportActionBar().hide();//eliminar la barra de arriba
         mVisible = true;
         mControlsView = findViewById(R.id.fullscreen_content_controls);
         mContentView = findViewById(R.id.fullscreen_content);
@@ -103,15 +103,30 @@ public class SplashScreenActivity extends AppCompatActivity {
             }
         });
 
-        // Upon interacting with UI controls, delay any scheduled hide()
-        // operations to prevent the jarring behavior of controls going away
-        // while interacting with the UI.
-        Intent i = new Intent(SplashScreenActivity.this, LoginActivity.class);
-        startActivity(i);
-        finish();
+
+            Thread timerTread = new Thread(){
+                public void run(){
+                    try{
+                        sleep(2500);
+                    }
+                    catch (InterruptedException e){
+                        e.printStackTrace();
+                    } finally {
+                        Intent intent = new Intent(SplashScreenActivity.this, LoginActivity.class);
+                        startActivity(intent);
+                        finish();
+                    }
+                }
+            };
+            timerTread.start();
 
     }
 
+    @Override
+    protected void onPause(){
+        super.onPause();
+        finish();
+    }
     @Override
     protected void onPostCreate(Bundle savedInstanceState) {
         super.onPostCreate(savedInstanceState);
