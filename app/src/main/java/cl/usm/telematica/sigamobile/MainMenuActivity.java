@@ -1,8 +1,5 @@
 package cl.usm.telematica.sigamobile;
 
-import android.graphics.Bitmap;
-import android.graphics.BitmapFactory;
-import android.os.AsyncTask;
 import android.os.Bundle;
 import android.support.design.widget.NavigationView;
 import android.support.v4.app.FragmentManager;
@@ -11,27 +8,11 @@ import android.support.v4.widget.DrawerLayout;
 import android.support.v7.app.ActionBarDrawerToggle;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
-import android.text.TextUtils;
-import android.view.Menu;
 import android.view.MenuItem;
-import android.widget.ImageView;
-import android.widget.LinearLayout;
-import android.widget.TextView;
+import android.widget.Toast;
 
-import java.io.BufferedReader;
-import java.io.FileOutputStream;
-import java.io.IOException;
-import java.io.InputStream;
-import java.io.InputStreamReader;
-import java.io.OutputStream;
 import java.net.HttpURLConnection;
-import java.net.MalformedURLException;
-import java.net.ProtocolException;
 import java.net.URL;
-
-import okhttp3.OkHttpClient;
-import okhttp3.Request;
-import okhttp3.Response;
 
 
 public class MainMenuActivity extends AppCompatActivity
@@ -43,6 +24,8 @@ public class MainMenuActivity extends AppCompatActivity
     private LoginActivity parent;
     public static java.net.CookieManager msCookieManager;
     Toolbar toolbar;
+    private String tipo;
+    private String rutAlumno;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -120,6 +103,17 @@ public class MainMenuActivity extends AppCompatActivity
             FragmentManager manager = getSupportFragmentManager();
             manager.beginTransaction().replace(R.id.main_layout, peronalFileFragment, peronalFileFragment.getTag()).commit();
             setActionBarTitle("Ficha Personal");
+        } else if (id == R.id.nav_adv){
+            ProgressFragment progressFragment = new ProgressFragment();
+            FragmentManager manager = getSupportFragmentManager();
+            manager.beginTransaction().replace(R.id.main_layout, progressFragment, progressFragment.getTag()).commit();
+            setActionBarTitle("Avance Curricular");
+        } else if (id == R.id.nav_resume){
+            if (tipo != null && rutAlumno !=null){
+                //TODO: make the posibility to download the resume.
+            }else{
+                Toast.makeText(this, "Un momento por favor...", Toast.LENGTH_SHORT).show();
+            }
         }
 
         DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
@@ -137,5 +131,21 @@ public class MainMenuActivity extends AppCompatActivity
 
     public void setActionBarTitle(String title){
         toolbar.setTitle(title);
+    }
+
+    public String getTipo() {
+        return tipo;
+    }
+
+    public void setTipo(String tipo) {
+        this.tipo = tipo;
+    }
+
+    public String getRutAlumno() {
+        return rutAlumno;
+    }
+
+    public void setRutAlumno(String rutAlumno) {
+        this.rutAlumno = rutAlumno;
     }
 }

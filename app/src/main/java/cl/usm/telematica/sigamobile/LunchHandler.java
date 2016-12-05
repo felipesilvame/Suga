@@ -11,16 +11,15 @@ import android.widget.TableRow;
 import android.widget.TextView;
 import android.widget.Toast;
 
-import java.io.IOException;
-import java.net.MalformedURLException;
-import java.net.ProtocolException;
-
 import org.jsoup.Connection;
 import org.jsoup.Jsoup;
 import org.jsoup.nodes.Document;
 import org.jsoup.nodes.Element;
 import org.jsoup.select.Elements;
 
+import java.io.IOException;
+import java.net.MalformedURLException;
+import java.net.ProtocolException;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -131,104 +130,114 @@ public class LunchHandler extends AsyncTask<LinearLayout, Void, Boolean> {
                         info_alumno.get(5));
                 nombre_alumno.setGravity(Gravity.START);
                 frameLayout.addView(nombre_alumno);
-                //texto: total almuerzos
-                TextView total_almuerzos = new TextView(mContainer.getContext());
-                total_almuerzos.setText(general.get(1) +
-                        general.get(2) +
-                        general.get(3));
-                total_almuerzos.setGravity(Gravity.START);
-                frameLayout.addView(total_almuerzos);
-                //texto: utilizados
-                TextView utilizados_almuerzos = new TextView(mContainer.getContext());
-                utilizados_almuerzos.setText(general.get(4) +
-                        general.get(5));
-                utilizados_almuerzos.setGravity(Gravity.START);
-                frameLayout.addView(utilizados_almuerzos);
-                //texto: disponibles
-                TextView disponibles_almuerzos = new TextView(mContainer.getContext());
-                disponibles_almuerzos.setText(general.get(6) +
-                        general.get(7));
-                disponibles_almuerzos.setGravity(Gravity.START);
-                frameLayout.addView(disponibles_almuerzos);
-                //texto: total cena
-                TextView total_cena = new TextView(mContainer.getContext());
-                total_cena.setText(general.get(8) +
-                        general.get(9) +
-                        general.get(10));
-                total_cena.setGravity(Gravity.START);
-                frameLayout.addView(total_cena);
-                //texto: utilizados cena
-                TextView utilizados_cena = new TextView(mContainer.getContext());
-                utilizados_cena.setText(general.get(11) +
-                        general.get(12));
-                utilizados_cena.setGravity(Gravity.START);
-                frameLayout.addView(utilizados_cena);
-                //texto: disponibles cena
-                TextView disponibles_cena = new TextView(mContainer.getContext());
-                disponibles_cena.setText(general.get(13) +
-                        general.get(14));
-                disponibles_cena.setGravity(Gravity.START);
-                frameLayout.addView(disponibles_cena);
-                //detalle de cada almuerzo
-                TextView detalle_almuerzo = new TextView(mContainer.getContext());
-                detalle_almuerzo.setText("Detalle Almuerzos");
-                detalle_almuerzo.setGravity(Gravity.CENTER_HORIZONTAL);
-                frameLayout.addView(detalle_almuerzo);
-                frameLayout.setOrientation(LinearLayout.VERTICAL);
-                TableLayout tableLayout = new TableLayout(mContainer.getContext());
+                if (general.size() != 0){
+                    //texto: total almuerzos
+                    TextView total_almuerzos = new TextView(mContainer.getContext());
+                    total_almuerzos.setText(general.get(1) +
+                            general.get(2) +
+                            general.get(3));
+                    total_almuerzos.setGravity(Gravity.START);
+                    frameLayout.addView(total_almuerzos);
+                    //texto: utilizados
+                    TextView utilizados_almuerzos = new TextView(mContainer.getContext());
+                    utilizados_almuerzos.setText(general.get(4) +
+                            general.get(5));
+                    utilizados_almuerzos.setGravity(Gravity.START);
+                    frameLayout.addView(utilizados_almuerzos);
+                    //texto: disponibles
+                    TextView disponibles_almuerzos = new TextView(mContainer.getContext());
+                    disponibles_almuerzos.setText(general.get(6) +
+                            general.get(7));
+                    disponibles_almuerzos.setGravity(Gravity.START);
+                    frameLayout.addView(disponibles_almuerzos);
+                    //texto: total cena
+                    TextView total_cena = new TextView(mContainer.getContext());
+                    total_cena.setText(general.get(8) +
+                            general.get(9) +
+                            general.get(10));
+                    total_cena.setGravity(Gravity.START);
+                    frameLayout.addView(total_cena);
+                    //texto: utilizados cena
+                    TextView utilizados_cena = new TextView(mContainer.getContext());
+                    utilizados_cena.setText(general.get(11) +
+                            general.get(12));
+                    utilizados_cena.setGravity(Gravity.START);
+                    frameLayout.addView(utilizados_cena);
+                    //texto: disponibles cena
+                    TextView disponibles_cena = new TextView(mContainer.getContext());
+                    disponibles_cena.setText(general.get(13) +
+                            general.get(14));
+                    disponibles_cena.setGravity(Gravity.START);
+                    frameLayout.addView(disponibles_cena);
+                    //detalle de cada almuerzo
+                    TextView detalle_almuerzo = new TextView(mContainer.getContext());
+                    detalle_almuerzo.setText("Detalle Almuerzos");
+                    detalle_almuerzo.setGravity(Gravity.CENTER_HORIZONTAL);
+                    frameLayout.addView(detalle_almuerzo);
+                    frameLayout.setOrientation(LinearLayout.VERTICAL);
+                    TableLayout tableLayout = new TableLayout(mContainer.getContext());
 
-                TableLayout.LayoutParams tableParams =
-                        new TableLayout.LayoutParams(TableLayout.LayoutParams.MATCH_PARENT,
-                                TableLayout.LayoutParams.MATCH_PARENT);
-                TableRow.LayoutParams rowParams =
-                        new TableRow.LayoutParams(TableRow.LayoutParams.MATCH_PARENT, 0, 1f);
-                TableRow.LayoutParams itemParams =
-                        new TableRow.LayoutParams(TableRow.LayoutParams.MATCH_PARENT,
-                                TableRow.LayoutParams.MATCH_PARENT, 1f);
-                tableLayout.setLayoutParams(tableParams);
-                //Texto: fecha
-                TextView texto_fecha = new TextView(mContainer.getContext());
-                texto_fecha.setText("Fecha");
-                texto_fecha.setLayoutParams(itemParams);
-                texto_fecha.setGravity(Gravity.CENTER_HORIZONTAL);
-                //Texto: Hora
-                TextView texto_hora = new TextView(mContainer.getContext());
-                texto_hora.setText("Hora");
-                texto_hora.setLayoutParams(itemParams);
-                texto_hora.setGravity(Gravity.CENTER_HORIZONTAL);
-
-                TableRow row = new TableRow(mContainer.getContext());
-                row.setLayoutParams(rowParams);
-
-                row.addView(texto_fecha);
-                row.addView(texto_hora);
-
-                tableLayout.addView(row);
-                //bonito ciclo for :D
-                for (int i = 0; i < detalle.size(); i++) {
+                    TableLayout.LayoutParams tableParams =
+                            new TableLayout.LayoutParams(TableLayout.LayoutParams.MATCH_PARENT,
+                                    TableLayout.LayoutParams.MATCH_PARENT);
+                    TableRow.LayoutParams rowParams =
+                            new TableRow.LayoutParams(TableRow.LayoutParams.MATCH_PARENT, 0, 1f);
+                    TableRow.LayoutParams itemParams =
+                            new TableRow.LayoutParams(TableRow.LayoutParams.MATCH_PARENT,
+                                    TableRow.LayoutParams.MATCH_PARENT, 1f);
+                    tableLayout.setLayoutParams(tableParams);
                     //Texto: fecha
-                    texto_fecha = new TextView(mContainer.getContext());
-                    texto_fecha.setText(detalle.get(i));
+                    TextView texto_fecha = new TextView(mContainer.getContext());
+                    texto_fecha.setText("Fecha");
                     texto_fecha.setLayoutParams(itemParams);
                     texto_fecha.setGravity(Gravity.CENTER_HORIZONTAL);
-                    i++;
                     //Texto: Hora
-                    texto_hora = new TextView(mContainer.getContext());
-                    texto_hora.setText(detalle.get(i));
+                    TextView texto_hora = new TextView(mContainer.getContext());
+                    texto_hora.setText("Hora");
                     texto_hora.setLayoutParams(itemParams);
                     texto_hora.setGravity(Gravity.CENTER_HORIZONTAL);
 
-                    row = new TableRow(mContainer.getContext());
+                    TableRow row = new TableRow(mContainer.getContext());
                     row.setLayoutParams(rowParams);
 
                     row.addView(texto_fecha);
                     row.addView(texto_hora);
+
                     tableLayout.addView(row);
+                    //bonito ciclo for :D
+                    for (int i = 0; i < detalle.size(); i++) {
+                        //Texto: fecha
+                        texto_fecha = new TextView(mContainer.getContext());
+                        texto_fecha.setText(detalle.get(i));
+                        texto_fecha.setLayoutParams(itemParams);
+                        texto_fecha.setGravity(Gravity.CENTER_HORIZONTAL);
+                        i++;
+                        //Texto: Hora
+                        texto_hora = new TextView(mContainer.getContext());
+                        texto_hora.setText(detalle.get(i));
+                        texto_hora.setLayoutParams(itemParams);
+                        texto_hora.setGravity(Gravity.CENTER_HORIZONTAL);
 
+                        row = new TableRow(mContainer.getContext());
+                        row.setLayoutParams(rowParams);
+
+                        row.addView(texto_fecha);
+                        row.addView(texto_hora);
+                        tableLayout.addView(row);
+
+                    }
+
+
+                    frameLayout.addView(tableLayout);
                 }
-
-
-                frameLayout.addView(tableLayout);
+                else{
+                    //si no hay beca de almuerzo
+                    //texto: El alumno no registra beca de almuerzo
+                    TextView text_1 = new TextView(mContainer.getContext());
+                    text_1.setText("El alumno no registra beca de alimentación");
+                    text_1.setGravity(Gravity.CENTER_HORIZONTAL);
+                    frameLayout.addView(text_1);
+                }
 
             }else{
                 //si no hay beca de almuerzo

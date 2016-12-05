@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical" android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:background="@drawable/border"
+    android:padding="10dip">
+
+    <TextView
+        android:text="Sigla: "
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/siglaTextView" />
+    <TextView
+        android:text="Asignatura: "
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/asignaturaTextView" />
+    <TextView
+        android:text="Profesor"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/profesorTextView" />
+    <TextView
+        android:text="Paralelo"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/paralTextView" />
+    <TextView
+        android:text="Creditos: "
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/creditTextView" />
+    <TextView
+        android:text="Nota: "
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/notaTextView" />
+    <TextView
+        android:text="Evaluacion: "
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/evalTextView" />
+    <TextView
+        android:text="Estado: "
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/estadoTextView" />
+</LinearLayout>

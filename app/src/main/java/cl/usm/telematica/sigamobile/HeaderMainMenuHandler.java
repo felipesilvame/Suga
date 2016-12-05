@@ -1,10 +1,8 @@
 package cl.usm.telematica.sigamobile;
 
-import android.app.Activity;
 import android.os.AsyncTask;
 import android.text.TextUtils;
 import android.util.Log;
-import android.widget.LinearLayout;
 import android.widget.TextView;
 
 import org.jsoup.Connection;
@@ -25,12 +23,14 @@ import static cl.usm.telematica.sigamobile.MainMenuActivity.msCookieManager;
  */
 
 public class HeaderMainMenuHandler extends AsyncTask<Void, Void, Boolean> {
-    private Activity parent;
+    private MainMenuActivity parent;
     private StringBuffer response = new StringBuffer();
     private Connection con = null;
     private Document doc = null;
+    private Connection menu = null;
+    private Document doc2 = null;
 
-    public HeaderMainMenuHandler(Activity _navHeader){
+    public HeaderMainMenuHandler(MainMenuActivity _navHeader){
         parent = _navHeader;
     }
     @Override
@@ -38,6 +38,9 @@ public class HeaderMainMenuHandler extends AsyncTask<Void, Void, Boolean> {
         //Log.i(TAG, "onPreExecute");
         Log.i(TAG, "trying to connect...");
         con = Jsoup.connect("https://siga.usm.cl/pag/cabecera.jsp")
+                .userAgent("Mozilla/5.0 (Windows NT 6.1; WOW64; rv:21.0) Gecko/20100101 Firefox/21.0")
+                .header("Cookie", TextUtils.join(";",  msCookieManager.getCookieStore().getCookies()));
+        menu = Jsoup.connect("https://siga.usm.cl/pag/menu.jsp")
                 .userAgent("Mozilla/5.0 (Windows NT 6.1; WOW64; rv:21.0) Gecko/20100101 Firefox/21.0")
                 .header("Cookie", TextUtils.join(";",  msCookieManager.getCookieStore().getCookies()));
         Log.i(TAG, "CONNECTED!!!");
@@ -48,6 +51,7 @@ public class HeaderMainMenuHandler extends AsyncTask<Void, Void, Boolean> {
         try {
             if (con !=null){
                 doc = con.get();
+                doc2 = menu.get();
                 return true;
             }else return false;
         } catch (IOException e) {
@@ -84,6 +88,17 @@ public class HeaderMainMenuHandler extends AsyncTask<Void, Void, Boolean> {
 
                 TextView tipo_alumno = (TextView) parent.findViewById(R.id.tipo_alumno);
                 tipo_alumno.setText(listado.get(2).trim());
+
+                Element form_resumen = doc2.select("form[name=form_resumen]").first();
+                Elements inputs = form_resumen.select("input");
+                for (Element e:inputs){
+                    if (e.attr("name").equals("tipo")){
+                        parent.setTipo(e.attr("value"));
+                    }else if (e.attr("name").equals("rutAlumno")){
+                        parent.setRutAlumno(e.attr("value"));
+                    }
+                }
+
             }catch (Exception e){
                 e.printStackTrace();
             }
