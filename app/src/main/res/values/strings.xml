@@ -17,7 +17,7 @@
     <string name="recordar">Recordarme</string>
     <string name="action_settings">Opciones</string>
     <string name="informaciones">Información SIGA</string>
-    <string name="title_activity_main_menu">Menu Principal</string>
+    <string name="title_activity_main_menu">Noticias</string>
 
     <string name="navigation_drawer_open">Open navigation drawer</string>
     <string name="navigation_drawer_close">Close navigation drawer</string>

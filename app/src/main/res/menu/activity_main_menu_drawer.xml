@@ -15,13 +15,14 @@
                 android:icon="@drawable/cutlery"
                 android:title="Beca de Alimentacion" />
             <item
-                android:id="@+id/nav_resume"
-                android:icon="@drawable/file"
-                android:title="Resumen académico" />
-            <item
                 android:id="@+id/nav_adv"
                 android:icon="@drawable/graduation_cap"
                 android:title="Avance curricular" />
+            <item
+                android:id="@+id/nav_resume"
+                android:icon="@drawable/file"
+                android:title="Resumen académico" />
+
         </menu>
     </item>
     <group android:checkableBehavior="single">

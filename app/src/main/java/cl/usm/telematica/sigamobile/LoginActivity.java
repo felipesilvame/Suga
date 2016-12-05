@@ -30,17 +30,12 @@ import java.io.DataOutputStream;
 import java.io.IOException;
 import java.io.InputStream;
 import java.io.InputStreamReader;
-import java.net.CookiePolicy;
 import java.net.HttpCookie;
 import java.net.HttpURLConnection;
-import java.net.MalformedURLException;
-import java.net.ProtocolException;
 import java.net.URL;
 import java.nio.charset.StandardCharsets;
 import java.util.ArrayList;
-import java.util.HashMap;
 import java.util.List;
-import java.net.CookieManager;
 import java.util.Map;
 
 
@@ -358,34 +353,7 @@ public class LoginActivity extends AppCompatActivity {
                         msCookieManager.getCookieStore().add(null, HttpCookie.parse(cookie).get(0));
                     }
                 }
-
-//
-//                int response = urlConnection.getResponseCode();
-//                if (response == HttpURLConnection.HTTP_OK){
-//
-//
-////                    for (Map.Entry<String, List<String>> header : urlConnection.getHeaderFields().entrySet()) {
-////                        if (header.getKey().equals("Set-Cookie")){
-////
-////                        }else if (header.getKey().equals("Location")){
-////                            location = header.getValue().toString();
-////                        }
-////                        Log.v(header.getKey(), header.getValue().toString());
-////                    }
-//                    String server_response = readStream(urlConnection.getInputStream());
-//                    //Log.v("CatalogClient", server_response);
-//                    //urlConnection.disconnect();
-//                    mCookie= response.header("Set-Cookie");
-//                    String[] tokens = mCookie.split(";");
- //                   mCookie = tokens[0];
-//                    setCookie(mCookie);
-//
-//                    //Log.v("Cookie", cookie);
-//
                     location = urlConnection.getHeaderField("Location");
-//                    //Log.v("Location", location);
-//                    //cambiar por true para finalizar
-//
                     if (location.contains("error_ingreso_login.jsp")){
                         return false;
                     }else{

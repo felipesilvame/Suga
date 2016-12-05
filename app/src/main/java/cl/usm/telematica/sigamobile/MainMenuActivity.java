@@ -56,6 +56,10 @@ public class MainMenuActivity extends AppCompatActivity
         //LinearLayout navHeader = (LinearLayout) findViewById(R.id.linearLayoutHeader);
         new HeaderMainMenuHandler(this).execute();
         new PhotoMainHandler(this).execute();
+        NewsFragment newsFragment = new NewsFragment();
+        FragmentManager manager = getSupportFragmentManager();
+        manager.beginTransaction().replace(R.id.main_layout, newsFragment, newsFragment.getTag()).commit();
+        setActionBarTitle("Noticias");
 
     }
 
@@ -114,6 +118,11 @@ public class MainMenuActivity extends AppCompatActivity
             }else{
                 Toast.makeText(this, "Un momento por favor...", Toast.LENGTH_SHORT).show();
             }
+        }else if (id == R.id.nav_home){
+            NewsFragment newsFragment = new NewsFragment();
+            FragmentManager manager = getSupportFragmentManager();
+            manager.beginTransaction().replace(R.id.main_layout, newsFragment, newsFragment.getTag()).commit();
+            setActionBarTitle("Noticias");
         }
 
         DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
