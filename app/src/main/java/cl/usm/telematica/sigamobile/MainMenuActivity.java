@@ -2,6 +2,7 @@ package cl.usm.telematica.sigamobile;
 
 import android.os.Bundle;
 import android.support.design.widget.NavigationView;
+import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentManager;
 import android.support.v4.view.GravityCompat;
 import android.support.v4.widget.DrawerLayout;
@@ -115,6 +116,10 @@ public class MainMenuActivity extends AppCompatActivity
         } else if (id == R.id.nav_resume){
             if (tipo != null && rutAlumno !=null){
                 //TODO: make the posibility to download the resume.
+                Fragment generatepdfFragment = GeneratepdfFragment.newInstance(rutAlumno,tipo);
+                FragmentManager manager = getSupportFragmentManager();
+                manager.beginTransaction().replace(R.id.main_layout, generatepdfFragment, generatepdfFragment.getTag()).commit();
+                setActionBarTitle("Resumen Académico");
             }else{
                 Toast.makeText(this, "Un momento por favor...", Toast.LENGTH_SHORT).show();
             }

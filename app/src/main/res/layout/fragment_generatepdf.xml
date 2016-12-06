@@ -1,0 +1,31 @@
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context="cl.usm.telematica.sigamobile.GeneratepdfFragment"
+    android:orientation="vertical"
+    android:id="@+id/linearLayoutPDF">
+
+    <!-- TODO: Update blank fragment layout -->
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Generar Avance Curricular"
+        android:layout_gravity="center_horizontal"
+        android:padding="6dp" />
+
+    <Spinner
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/pdfSpinner"
+        android:padding="6dp" />
+
+    <Button
+        android:text="Generar Resumen"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/generatePdfButton"
+        android:layout_gravity="center_horizontal"
+        android:padding="12dp" />
+
+</LinearLayout>
